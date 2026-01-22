@@ -9,7 +9,7 @@ import requests
 
 
 ### TODO: Change this base URL to your model server URL
-model_server_base_url = "https://<your render url>.onrender.com"
+model_server_base_url = "https://doaa-prac78-thingy.onrender.com"
 
 
 url = f'{model_server_base_url}/v1/models/digit_classifier:predict'
