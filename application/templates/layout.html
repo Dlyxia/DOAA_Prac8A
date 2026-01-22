@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css')}}" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container-fluid text-center top-container">
+        <img src="{{ url_for('static',filename='images/logo2.png')}}">
+    </div>
+    <div class="container">
+        <header>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="/home" class="nav-link 
+                {% if index %}active{% endif %}">Home</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        {% with messages = get_flashed_messages(with_categories=true)%}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{category}}">
+            <p>{{ message }}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="fixed-bottom container-fluid text-center 
+            bottom-container">
+        <footer>
+            <p>Copyright &copy;2020. &#9865; DevOps for AI
+                Automation &#9865; All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static',filename='js/index.js')}}"></script>
+</body>
+
+</html>
