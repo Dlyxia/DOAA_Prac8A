@@ -61,3 +61,4 @@ jobs:
           app-name: 'app-devopsp'
           slot-name: 'Production'
           startup-command: 'gunicorn --bind=0.0.0.0 --timeout 600 application:app'
+
